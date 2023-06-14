@@ -1,7 +1,6 @@
 package com.example.amstapiapp6;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -18,13 +17,20 @@ public class menu extends AppCompatActivity {
         Intent login = getIntent();
         this.token = (String)login.getExtras().get("token");
     }
+
     public void Salir(View v){
         this.finish();
         System.exit(0);
     }
+
     public void revisarSensores(View v){
         Intent red_sensores = new Intent(getBaseContext(), red_sensores.class);
         red_sensores.putExtra("token", token);
         startActivity(red_sensores);
+    }
+
+    public void enviarDatos(View v) {
+        Intent enviarData = new Intent(getBaseContext(), EnviarDataActivity.class);
+        startActivity(enviarData);
     }
 }
